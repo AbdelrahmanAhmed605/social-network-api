@@ -17,7 +17,7 @@ const reactionSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: new Date(),
+    default: () => new Date(),
   },
 });
 
