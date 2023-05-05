@@ -48,6 +48,7 @@ module.exports = {
       const updatedUser = await User.findByIdAndUpdate(
         req.params.userId,
         {
+          // only changes the fields placed in the request body
           $set: req.body,
         },
         { runValidators: true, new: true }
@@ -84,6 +85,7 @@ module.exports = {
       const user = await User.findByIdAndUpdate(
         req.params.userId,
         {
+          // adds the friends id to the corresponding user's friends field array
           $addToSet: { friends: req.params.friendId },
         },
         { runValidators: true, new: true }
@@ -104,6 +106,7 @@ module.exports = {
       const user = await User.findByIdAndUpdate(
         req.params.userId,
         {
+          // finds and removes entries in the Users's friends array by looking for entires with a friendId of that in the req parameters
           $pull: { friends: req.params.friendId },
         },
         { runValidators: true, new: true }
