@@ -90,7 +90,7 @@ module.exports = {
         return res.status(404).json({ message: "No thought with that ID" });
       }
 
-      res.json(deletedThought);
+      res.json({ message: "Thought successfully deleted!" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -141,7 +141,7 @@ module.exports = {
         return res.status(404).json({ message: "No thought  with that ID" });
       }
 
-      res.json(updatedThought);
+      res.json({ message: "Reaction successfully deleted!" });
     } catch (err) {
       res.status(500).json(err);
     }
